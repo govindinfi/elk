@@ -1,0 +1,85 @@
+version: '3.7'
+
+services:
+  elasticsearch:
+    build:
+      context: elasticsearch
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
+      - elasticsearch:/usr/share/elasticsearch/data:z
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: -Xmx256m -Xms256m
+      #ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-}
+      discovery.type: single-node
+    networks:
+      - infinity
+
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+    user: root
+    ports:
+      - "5044:5044"
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: -Xmx256m -Xms256m
+      #LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
+    networks:
+      - infinity
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    build:
+      context: kibana/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    volumes:
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
+    ports:
+      - "5601:5601"
+    #environment:
+      #KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
+    networks:
+      - infinity
+    depends_on:
+      - elasticsearch
+
+  filebeat:
+    build:
+      context: filebeat/
+      args:
+        ELASTIC_VERSION: ${ELASTIC_VERSION}
+    user: root
+    volumes:
+      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro,Z
+      - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
+    #  - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    # entrypoint:
+    #   "filebeat -e -strict.perms=false"
+    ports:
+      - "5066:5066"
+    networks:
+      - infinity
+    depends_on:
+      - elasticsearch
+
+networks:
+  infinity:
+    driver: bridge
+
+volumes:
+  setup:
+  elasticsearch:
