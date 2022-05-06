@@ -2,6 +2,8 @@
 
 Elasticsearch Kibana Logstash Filebeat docker Project.
 
+https://github.com/shazChaudhry/docker-elastic/blob/master/pics/elastic-products.PNG
+
 #### Setup
 
 1. Install docker and docker-compose latest version on your machine.
