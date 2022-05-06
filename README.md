@@ -9,7 +9,12 @@ Elasticsearch Kibana Logstash Filebeat docker Project.
 #### Setup
 
 1. Install docker and docker-compose latest version on your machine.
-2. Clone elk repo and run docker-compose up -d 
+2. Clone elk repo and run docker-compose up -d
+
+
+<p align="left">
+   <img src="https://skillfield.com.au/wp-content/uploads/2021/04/The-Elastic-Stack.png"/>
+</p>
 
 ### Note [ Password configurations avaialbe in docker-compose.yml file, if need to enable.]
 
