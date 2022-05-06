@@ -7,6 +7,6 @@ Elasticsearch Kibana Logstash Filebeat docker Project.
 1. Install docker and docker-compose latest version on your machine.
 2. Clone elk repo and run docker-compose up -d 
 
-### Note [ Password configurations avaialbe in docker-compose.yml tile, if need to enable.]
+### Note [ Password configurations avaialbe in docker-compose.yml file, if need to enable.]
 
 If any query please connect with me at https://github.com/
