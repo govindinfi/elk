@@ -3,7 +3,7 @@
 Elasticsearch Kibana Logstash Filebeat docker Project.
 
 <p align="left">
-  <img src="https://raw.githubusercontent.com/shazChaudhry/docker-elastic/master/pics/elastic-products.PNG" alt="Elastic products" style="width: 900px;"/>
+  <img src="https://raw.githubusercontent.com/shazChaudhry/docker-elastic/master/pics/elastic-products.PNG" alt="Elastic products" style="width: 600px;"/>
 </p>
 
 #### Setup
@@ -13,7 +13,7 @@ Elasticsearch Kibana Logstash Filebeat docker Project.
 
 
 <p align="left">
-   <img src="https://skillfield.com.au/wp-content/uploads/2021/04/The-Elastic-Stack.png"/>
+   <img src="https://skillfield.com.au/wp-content/uploads/2021/04/The-Elastic-Stack.png" alt="Elastic details" style="width: 600px;"/>
 </p>
 
 ### Note [ Password configurations avaialbe in docker-compose.yml file, if need to enable.]
