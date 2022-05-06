@@ -16,6 +16,6 @@ Elasticsearch Kibana Logstash Filebeat docker Project.
    <img src="https://skillfield.com.au/wp-content/uploads/2021/04/The-Elastic-Stack.png" alt="Elastic details" style="width: 600px;"/>
 </p>
 
-### Note [ Password configurations avaialbe in docker-compose.yml file, if need to enable.]
+### Note [ If you need to enable password configurations, look in the docker-compose.yml file. ]
 
 If any query please connect with me at https://github.com/
