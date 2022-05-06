@@ -2,7 +2,7 @@
 
 Elasticsearch Kibana Logstash Filebeat docker Project.
 
-<p align="center">
+<p align="left">
   <img src="https://raw.githubusercontent.com/shazChaudhry/docker-elastic/master/pics/elastic-products.PNG" alt="Elastic products" style="width: 400px;"/>
 </p>
 
